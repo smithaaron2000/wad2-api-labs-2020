@@ -1,7 +1,7 @@
 // Load the http module to create an http server.
 import http from 'http';
 import dotenv from 'dotenv';
-import greeting from './greeting.js';
+import greeting from './greetings.js';
 
 dotenv.config();
 const port = process.env.PORT;
