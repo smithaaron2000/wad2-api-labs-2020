@@ -2,6 +2,8 @@ import dotenv from 'dotenv';
 import express from 'express';
 import moviesRouter from './api/movies';
 import bodyParser from 'body-parser';
+import './db';
+import {loadUsers} from './seedData';
 
 dotenv.config();
 
@@ -15,6 +17,10 @@ const errHandler = (err, req, res, next) => {
 };
 
 const app = express();
+
+if (process.env.SEED_DB) {
+  loadUsers();
+}
 
 //configure body-parser
 app.use(bodyParser.json());
