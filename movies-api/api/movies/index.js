@@ -1,7 +1,5 @@
 import express from 'express';
-import {
-  getMovies, getMovie, getMovieReviews
-} from '../movies/tmdb-api';
+import { getMovies, getMovie, getMovieReviews } from '../tmdb-api';
 
 const router = express.Router();
 
