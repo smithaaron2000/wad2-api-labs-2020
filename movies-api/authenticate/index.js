@@ -6,7 +6,7 @@ export default async (req, res, next) => {
     if (!user)
       return res.status(401).json({status:401,message:"unauthorised"});
     next();
-  } //else {
-  //   return res.status(401).json({status:401,message:"unauthorised"});
-  // }
+  } else {
+    return res.status(401).json({status:401,message:"unauthorised"});
+  }
 };
