@@ -8,7 +8,6 @@ router.get('/', (req, res, next) => {
     User.find().then(users =>  res.status(200).json(users)).catch(next);
 });
 
-
 // authenticate a user
 router.post('/', (req, res, next) => {
   if (!req.body.username || !req.body.password) {
