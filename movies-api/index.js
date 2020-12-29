@@ -5,6 +5,8 @@ import bodyParser from 'body-parser';
 import './db';
 import usersRouter from './api/users';
 import genresRouter from './api/genres';
+import upcomingRouter from './api/upcomingMovies';
+import topratedRouter from './api/topRatedMovies';
 import session from "express-session";
 import passport from "./authenticate";
 import { loadUsers, loadMovies } from './seedData';
@@ -42,6 +44,8 @@ app.use(session({
 
 app.use(express.static('public'));
 app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
+app.use('/api/upcoming', upcomingRouter);
+app.use('/api/toprated', topratedRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/genres', genresRouter);
 
