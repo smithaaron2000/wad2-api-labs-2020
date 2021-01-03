@@ -28,7 +28,8 @@ const MovieSchema = new Schema({
     name: { type: String }
   }],
   status: { type: String },
-  tagline: { type: String }
+  tagline: { type: String },
+  reviews: [{type: String}]
 });
 
 MovieSchema.statics.findByMovieDBId = function (id) {
