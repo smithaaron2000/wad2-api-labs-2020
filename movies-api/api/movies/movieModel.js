@@ -29,7 +29,7 @@ const MovieSchema = new Schema({
   }],
   status: { type: String },
   tagline: { type: String },
-  reviews: [{type: String}]
+  reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Reviews'}]
 });
 
 MovieSchema.statics.findByMovieDBId = function (id) {

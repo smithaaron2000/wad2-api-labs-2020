@@ -7,6 +7,7 @@ import usersRouter from './api/users';
 import genresRouter from './api/genres';
 import upcomingRouter from './api/upcomingMovies';
 import topratedRouter from './api/topRatedMovies';
+import peopleRouter from './api/people';
 import session from "express-session";
 import passport from "./authenticate";
 import { loadUsers, loadMovies } from './seedData';
@@ -48,6 +49,7 @@ app.use('/api/upcoming', upcomingRouter);
 app.use('/api/toprated', topratedRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/genres', genresRouter);
+app.use('/api/people', peopleRouter);
 
 app.use(errHandler);
 

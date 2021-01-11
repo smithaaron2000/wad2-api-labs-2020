@@ -27,6 +27,24 @@ export const getMovies = () => {
     ).then(res => res.json());
   };
 
+  export const getMovie = () => {
+    return fetch(
+       '/api/movies/:id',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getSimilarMovies = () => {
+    return fetch(
+       '/api/similar',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
   export const getUpcomingMovies = () => {
     return fetch(
        '/api/upcoming',{headers: {
@@ -44,3 +62,57 @@ export const getMovies = () => {
     }
     ).then(res => res.json());
   };
+
+export const getGenres = () => {
+  return fetch(
+     '/api/genres',{headers: {
+       'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  ).then(res => res.json());
+};
+
+export const getCredits = () => {
+  return fetch(
+     '/api/movies/:id/credits',{headers: {
+       'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  ).then(res => res.json());
+};
+
+export const getMovieReviews = () => {
+  return fetch(
+     '/api/movies/:id/reviews',{headers: {
+       'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  ).then(res => res.json());
+};
+
+export const getPopularPeople = () => {
+  return fetch(
+     '/api/people',{headers: {
+       'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  ).then(res => res.json());
+};
+
+export const getPerson = () => {
+  return fetch(
+     '/api/people/:id',{headers: {
+       'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  ).then(res => res.json());
+};
+
+export const getPersonMovieCredits = () => {
+  return fetch(
+     '/api/people/:id',{headers: {
+       'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  ).then(res => res.json());
+};
