@@ -27,18 +27,18 @@ export const getMovies = () => {
     ).then(res => res.json());
   };
 
-  export const getMovie = () => {
+  export const getMovie = id => {
     return fetch(
-       '/api/movies/:id',{headers: {
+       `/api/movies/${id}`,{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
     ).then(res => res.json());
   };
 
-  export const getSimilarMovies = () => {
+  export const getSimilarMovies = id => {
     return fetch(
-       '/api/similar',{headers: {
+       `/api/movies/${id}/similar`,{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
@@ -72,18 +72,18 @@ export const getGenres = () => {
   ).then(res => res.json());
 };
 
-export const getCredits = () => {
+export const getCredits = id => {
   return fetch(
-     '/api/movies/:id/credits',{headers: {
+     `/api/movies/${id}/credits`,{headers: {
        'Authorization': window.localStorage.getItem('token')
     }
   }
   ).then(res => res.json());
 };
 
-export const getMovieReviews = () => {
+export const getMovieReviews = id => {
   return fetch(
-     '/api/movies/:id/reviews',{headers: {
+     `/api/movies/${id}/reviews`,{headers: {
        'Authorization': window.localStorage.getItem('token')
     }
   }
@@ -99,18 +99,18 @@ export const getPopularPeople = () => {
   ).then(res => res.json());
 };
 
-export const getPerson = () => {
+export const getPerson = id => {
   return fetch(
-     '/api/people/:id',{headers: {
+     `/api/people/${id}`,{headers: {
        'Authorization': window.localStorage.getItem('token')
     }
   }
   ).then(res => res.json());
 };
 
-export const getPersonMovieCredits = () => {
+export const getPersonMovieCredits = id => {
   return fetch(
-     '/api/people/:id',{headers: {
+     `/api/people/${id}/credits`,{headers: {
        'Authorization': window.localStorage.getItem('token')
     }
   }

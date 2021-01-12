@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./siteHeader.css";
-import LoginButton from "../buttons/loginButton";
-import LogoutButton from "../buttons/logoutButton";
-import { useAuth0 } from "@auth0/auth0-react";
+//import LoginButton from "../buttons/loginButton";
+//import LogoutButton from "../buttons/logoutButton";
+//import { useAuth0 } from "@auth0/auth0-react";
 
-const AuthNav = () => {
-  const { isAuthenticated } = useAuth0();
+// const AuthNav = () => {
+//   const { isAuthenticated } = useAuth0();
 
-  return (
-    <nav className="justify-content-end">
-      {isAuthenticated ? <LogoutButton /> : <LoginButton />}
-    </nav>
-  );
-};
+//   return (
+//     <nav className="justify-content-end">
+//       {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+//     </nav>
+//   );
+// };
 
 const SiteHeader = () => {
   return (
@@ -75,9 +75,9 @@ const SiteHeader = () => {
               Contact Us 
             </Link>
           </li>
-          <li className="nav-item">
-            <AuthNav/>
-          </li>
+          {/* <li className="nav-item">
+            <AuthNav/> 
+          </li> */}
         </ul>
       </nav>
     </nav>
