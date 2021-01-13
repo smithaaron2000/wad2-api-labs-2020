@@ -16,7 +16,7 @@ const PersonPage = props => {
         <PersonPageTemplate person={person}>
           <PersonDetails person={person} />
         </PersonPageTemplate>
-        <PersonMovieCredits person={person} />
+        {/* <PersonMovieCredits person={person} /> */}
       </>
     ) : (
       <p>Waiting for person details</p>

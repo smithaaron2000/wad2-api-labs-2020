@@ -1,16 +1,16 @@
 import express from 'express';
+import allMovieModel from './allMovieModel';
 //import { getPopularPeople, getPerson } from '../tmdb-api';
-import peopleModel from './peopleModel';
 
 const router = express.Router();
 
   router.get('/', (req, res, next) => {
-  peopleModel.find().then(people => res.status(200).send(people)).catch(next);
+  allMovieModel.find().then(allMovies => res.status(200).send(allMovies)).catch(next);
 });
 
 router.get('/:id', (req, res, next) => {
   const id = parseInt(req.params.id);
-  peopleModel.findByPeopleId(id).then(person => res.status(200).send(person)).catch(next);
+  allMovieModel.findByMovieDBId(id).then(allMovies => res.status(200).send(allMovies)).catch(next);
 });
 
 // router.get('/', (req, res, next) => {

@@ -18,6 +18,17 @@ export const signup = (username, password) => {
     }).then(res => res.json())
 };
 
+// export const favourites = (username, getMovie) => {
+//     return fetch(`api/users/${username}/favourites`, {
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       method: 'post',
+//       body: JSON.stringify({username: username, movie: getMovie(id) })
+//     }).then(res => res.json())
+//   };
+
+
 export const getMovies = () => {
     return fetch(
        '/api/movies',{headers: {
@@ -29,16 +40,7 @@ export const getMovies = () => {
 
   export const getMovie = id => {
     return fetch(
-       `/api/movies/${id}`,{headers: {
-         'Authorization': window.localStorage.getItem('token')
-      }
-    }
-    ).then(res => res.json());
-  };
-
-  export const getSimilarMovies = id => {
-    return fetch(
-       `/api/movies/${id}/similar`,{headers: {
+       `/api/allmovies/${id}`,{headers: {
          'Authorization': window.localStorage.getItem('token')
       }
     }
@@ -72,23 +74,23 @@ export const getGenres = () => {
   ).then(res => res.json());
 };
 
-export const getCredits = id => {
-  return fetch(
-     `/api/movies/${id}/credits`,{headers: {
-       'Authorization': window.localStorage.getItem('token')
-    }
-  }
-  ).then(res => res.json());
-};
+// export const getCredits = id => {
+//   return fetch(
+//      `/api/movies/${id}/credits`,{headers: {
+//        'Authorization': window.localStorage.getItem('token')
+//     }
+//   }
+//   ).then(res => res.json());
+// };
 
-export const getMovieReviews = id => {
-  return fetch(
-     `/api/movies/${id}/reviews`,{headers: {
-       'Authorization': window.localStorage.getItem('token')
-    }
-  }
-  ).then(res => res.json());
-};
+// export const getMovieReviews = id => {
+//   return fetch(
+//      `/api/movies/${id}/reviews`,{headers: {
+//        'Authorization': window.localStorage.getItem('token')
+//     }
+//   }
+//   ).then(res => res.json());
+// };
 
 export const getPopularPeople = () => {
   return fetch(
@@ -108,11 +110,11 @@ export const getPerson = id => {
   ).then(res => res.json());
 };
 
-export const getPersonMovieCredits = id => {
-  return fetch(
-     `/api/people/${id}/credits`,{headers: {
-       'Authorization': window.localStorage.getItem('token')
-    }
-  }
-  ).then(res => res.json());
-};
+// export const getPersonMovieCredits = id => {
+//   return fetch(
+//      `/api/people/${id}/credits`,{headers: {
+//        'Authorization': window.localStorage.getItem('token')
+//     }
+//   }
+//   ).then(res => res.json());
+// };

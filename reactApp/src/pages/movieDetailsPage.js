@@ -18,7 +18,7 @@ const MoviePage = props => {
         <PageTemplate movie={movie}>
           <MovieDetails movie={movie} />
         </PageTemplate>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-12 ">
             {!props.history.location.pathname.endsWith("/reviews") ? (
               <Link
@@ -84,11 +84,11 @@ const MoviePage = props => {
               </Link>
             )}
           </div>
-        </div>
-        <Route
+        </div> */}
+        {/* <Route
           path={`/movies/:id/similar`}
           render={props => <SimilarMovie movie={movie} {...props} />}
-        />
+        /> */}
         {/* <Credits movie={movie} /> */}
         {/* <SimilarMovie movie={movie} /> */}
         

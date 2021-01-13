@@ -8,9 +8,10 @@ import genresRouter from './api/genres';
 import upcomingRouter from './api/upcomingMovies';
 import topratedRouter from './api/topRatedMovies';
 import peopleRouter from './api/people';
+import allMoviesRouter from './api/allMovies';
 import session from "express-session";
 import passport from "./authenticate";
-import { loadUsers, loadMovies } from './seedData';
+import { loadUsers, loadMovies, loadPeople, loadTopRatedMovies, loadUpcomingMovies, loadAllMovies } from './seedData';
 
 dotenv.config();
 
@@ -27,7 +28,11 @@ const app = express();
 
 if (process.env.SEED_DB) {
   loadUsers();
+  loadAllMovies();
   loadMovies();
+  loadPeople();
+  loadTopRatedMovies();
+  loadUpcomingMovies();
 }
 
 //configure body-parser
@@ -50,6 +55,7 @@ app.use('/api/toprated', topratedRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/genres', genresRouter);
 app.use('/api/people', peopleRouter);
+app.use('/api/allmovies', allMoviesRouter);
 
 app.use(errHandler);
 
