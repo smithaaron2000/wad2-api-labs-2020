@@ -1,5 +1,6 @@
 import express from 'express';
 import allMovieModel from './allMovieModel';
+import { getCredits } from '../tmdb-api';
 //import { getPopularPeople, getPerson } from '../tmdb-api';
 
 const router = express.Router();
@@ -11,6 +12,12 @@ const router = express.Router();
 router.get('/:id', (req, res, next) => {
   const id = parseInt(req.params.id);
   allMovieModel.findByMovieDBId(id).then(allMovies => res.status(200).send(allMovies)).catch(next);
+});
+
+router.get('/:id/credits', (req, res, next) => {
+  const id = parseInt(req.params.id);
+  getCredits(id).then(cast => res.status(200).send(cast))
+  .catch((error) => next(error));
 });
 
 // router.get('/', (req, res, next) => {

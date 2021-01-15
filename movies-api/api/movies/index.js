@@ -1,5 +1,6 @@
 import express from 'express';
 //import { getMovies, getMovie } from '../tmdb-api';
+import { getCredits } from '../tmdb-api';
 import movieModel from './movieModel';
 
 const router = express.Router();
@@ -38,11 +39,11 @@ router.get('/:id', (req, res, next) => {
 //   .catch((error) => next(error));
 // });
 
-// router.get('/:id/credits', (req, res, next) => {
-//   const id = parseInt(req.params.id);
-//   getCredits(id).then(cast => res.status(200).send(cast))
-//   .catch((error) => next(error));
-// });
+router.get('/:id/credits', (req, res, next) => {
+  const id = parseInt(req.params.id);
+  getCredits(id).then(cast => res.status(200).send(cast))
+  .catch((error) => next(error));
+});
 
 // router.get('/:id/similar', (req, res, next) => {
 //   const id = parseInt(req.params.id);

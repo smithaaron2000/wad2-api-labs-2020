@@ -2,6 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import React, { useContext } from "react";
 import {MoviesContext} from "../../contexts/moviesContext";
 import { AuthContext } from "../auth/authContext";
+import { favourites } from "../../api/movie-api";
 
 const AddToFavoriteButton = ({ movie }) => {
   const context = useContext(MoviesContext);
@@ -11,7 +12,9 @@ const AddToFavoriteButton = ({ movie }) => {
   const handleAddToFavorite = e => {
     e.preventDefault();
     context.addToFavorites(movie.id);
+    favourites(context1.userName, movie.id);
   };
+
   return (
     context1.isAuthenticated && (
     <button

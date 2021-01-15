@@ -1,6 +1,6 @@
 
 import React, { useEffect, createContext, useReducer } from "react";
-import { getMovies, getUpcomingMovies, getTopRatedMovies } from "../api/movie-api";
+import { getMovies, getUpcomingMovies, getTopRatedMovies, favourites } from "../api/movie-api";
 
 export const MoviesContext = createContext(null);
 

@@ -41,8 +41,8 @@ const MoviePage = props => {
           path={`/movies/:id/reviews`}
           render={props => <MovieReviews movie={movie} {...props} />}
         />
-        <br/>
-        <div className="row">
+        <br/> */}
+        {/* <div className="row">
           <div className="col-12 ">
             {!props.history.location.pathname.endsWith("/credits") ? (
               <Link
@@ -65,8 +65,8 @@ const MoviePage = props => {
           path={`/movies/:id/credits`}
           render={props => <Credits movie={movie} {...props} />}
         />
-        <br/>
-        <div className="row">
+        <br/> */}
+        {/* <div className="row">
           <div className="col-12 ">
             {!props.history.location.pathname.endsWith("/similar") ? (
               <Link
@@ -88,9 +88,9 @@ const MoviePage = props => {
         {/* <Route
           path={`/movies/:id/similar`}
           render={props => <SimilarMovie movie={movie} {...props} />}
-        /> */}
-        {/* <Credits movie={movie} /> */}
+        />
         {/* <SimilarMovie movie={movie} /> */}
+        {/* {<Credits movie={movie} /> } */}
         
       </>
     ) : (

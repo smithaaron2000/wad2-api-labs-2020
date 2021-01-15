@@ -4,11 +4,13 @@ import { movies } from './movies.js';
 import { people } from './popularPeople.js';
 import { upcoming } from './upcomingMovies.js';
 import { toprated } from './topRatedMovies.js';
+import { genres } from './genres.js';
 import peopleModel from '../api/people/peopleModel';
 import upcomingModel from '../api/upcomingMovies/upcomingModel';
 import topRatedModel from '../api/topRatedMovies/topRatedModel';
 import allMovieModel from '../api/allMovies/allMovieModel';
 import { allMovies } from './allMovies';
+import genreModel from '../api/genres/genreModel';
 
 const users = [
   {
@@ -90,6 +92,18 @@ export async function loadPeople() {
     console.info(`${people.length} People were successfully stored.`);
   } catch (err) {
     console.error(`failed to Load people Data: ${err}`);
+  }
+}
+
+export async function loadGenres() {
+  console.log('load seed data');
+  console.log(genres.length);
+  try {
+    await genreModel.deleteMany();
+    await genreModel.collection.insertMany(genres);
+    console.info(`${genres.length} Genres were successfully stored.`);
+  } catch (err) {
+    console.error(`failed to Load genre Data: ${err}`);
   }
 }
 

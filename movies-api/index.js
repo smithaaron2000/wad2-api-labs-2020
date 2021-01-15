@@ -11,7 +11,7 @@ import peopleRouter from './api/people';
 import allMoviesRouter from './api/allMovies';
 import session from "express-session";
 import passport from "./authenticate";
-import { loadUsers, loadMovies, loadPeople, loadTopRatedMovies, loadUpcomingMovies, loadAllMovies } from './seedData';
+import { loadUsers, loadMovies, loadPeople, loadTopRatedMovies, loadUpcomingMovies, loadAllMovies, loadGenres } from './seedData';
 
 dotenv.config();
 
@@ -33,6 +33,7 @@ if (process.env.SEED_DB) {
   loadPeople();
   loadTopRatedMovies();
   loadUpcomingMovies();
+  loadGenres();
 }
 
 //configure body-parser

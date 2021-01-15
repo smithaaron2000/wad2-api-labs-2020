@@ -18,15 +18,15 @@ export const signup = (username, password) => {
     }).then(res => res.json())
 };
 
-// export const favourites = (username, getMovie) => {
-//     return fetch(`api/users/${username}/favourites`, {
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       method: 'post',
-//       body: JSON.stringify({username: username, movie: getMovie(id) })
-//     }).then(res => res.json())
-//   };
+export const favourites = (username, id) => {
+    return fetch(`api/users/${username}/favourites`, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'post',
+      body: JSON.stringify({id: id })
+    }).then(res => res.json())
+  };
 
 
 export const getMovies = () => {
@@ -74,14 +74,14 @@ export const getGenres = () => {
   ).then(res => res.json());
 };
 
-// export const getCredits = id => {
-//   return fetch(
-//      `/api/movies/${id}/credits`,{headers: {
-//        'Authorization': window.localStorage.getItem('token')
-//     }
-//   }
-//   ).then(res => res.json());
-// };
+export const getCredits = id => {
+  return fetch(
+     `/api/allmovies/${id}/credits`,{headers: {
+       'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  ).then(res => res.json());
+};
 
 // export const getMovieReviews = id => {
 //   return fetch(
