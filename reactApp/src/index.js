@@ -70,7 +70,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import FavoritesMoviesPage from './pages/favoritesMoviesPage'
+import FavoritesMoviesPage from './pages/favouritesMoviesPage'
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
@@ -96,8 +96,8 @@ import AuthProvider from "./components/auth/authContext";
 const App = () => {
   return (
     <BrowserRouter>
-    <AuthProvider>
     <div className="jumbotron">
+    <AuthProvider>
         <AuthHeader />
     <SiteHeader />      {/* New Header  */}
       <div className="container-fluid">
@@ -124,8 +124,9 @@ const App = () => {
         </GenresContextProvider>
         </MoviesContextProvider>
       </div>
+      </AuthProvider>
     </div>
-    </AuthProvider>
+    
   </BrowserRouter>
   );
 };

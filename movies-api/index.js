@@ -43,13 +43,13 @@ app.use(passport.initialize());
 
 const port = process.env.PORT;
 
+app.use(express.static('public'));
 app.use(session({
   secret: 'ilikecake',
   resave: true,
   saveUninitialized: true
 }));
 
-app.use(express.static('public'));
 app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
 app.use('/api/upcoming', upcomingRouter);
 app.use('/api/toprated', topratedRouter);
@@ -58,7 +58,9 @@ app.use('/api/genres', genresRouter);
 app.use('/api/people', peopleRouter);
 app.use('/api/allmovies', allMoviesRouter);
 
+
 app.use(errHandler);
+
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);

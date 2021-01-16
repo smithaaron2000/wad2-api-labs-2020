@@ -4,12 +4,12 @@ import {MoviesContext} from "../../contexts/moviesContext";
 import { AuthContext } from "../auth/authContext";
 import { favourites } from "../../api/movie-api";
 
-const AddToFavoriteButton = ({ movie }) => {
+const AddToFavouriteButton = ({ movie }) => {
   const context = useContext(MoviesContext);
   const context1 = useContext(AuthContext);
   //const { isAuthenticated } = useAuth0();
 
-  const handleAddToFavorite = e => {
+  const handleAddToFavourite = e => {
     e.preventDefault();
     context.addToFavorites(movie.id);
     favourites(context1.userName, movie.id);
@@ -20,12 +20,12 @@ const AddToFavoriteButton = ({ movie }) => {
     <button
       type="button"
       className="btn w-100 btn-primary"
-      onClick={handleAddToFavorite}
+      onClick={handleAddToFavourite}
     >
-      Add to Favorites
+      Add to Favourites
     </button>
     )
   );
 };
 
-export default AddToFavoriteButton;
+export default AddToFavouriteButton;
