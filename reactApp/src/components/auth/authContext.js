@@ -1,5 +1,5 @@
 import React, { useState, createContext } from "react";
-import { login, signup, getSpecificUserFavourites } from "../../api/movie-api";
+import { login, signup, getSpecificUserFavourites, getSpecificUserWatchList } from "../../api/movie-api";
 
 export const AuthContext = createContext(null);
 
@@ -39,6 +39,11 @@ const AuthContextProvider = (props) => {
     return(movies);
   }
 
+  const getUserWatchList = async (username) => {
+    const upcoming = await getSpecificUserWatchList(username);
+    return(upcoming);
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -47,6 +52,7 @@ const AuthContextProvider = (props) => {
         register,
         signout,
         getUserFavourites,
+        getUserWatchList,
         userName
       }}
     >

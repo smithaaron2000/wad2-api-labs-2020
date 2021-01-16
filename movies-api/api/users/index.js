@@ -83,4 +83,30 @@ router.post('/:userName/favourites', async (req, res, next) => {
   }
 });
 
+router.get('/:userName/watchList', (req, res, next) => {
+  const userName = req.params.userName;
+  User.findByUserName(userName).populate('watchList').then(
+    user => res.status(201).json(user.watchList)
+  ).catch(next);
+});
+
+router.post('/:userName/watchList', async (req, res, next) => {
+  const newWatchList = req.body.id;
+  const userName = req.params.userName;
+  const movie = await movieModel.findByMovieDBId(newWatchList);
+  const user = await User.findByUserName(userName);
+  if (user.watchList.indexOf(movie._id) == -1) {
+    await user.watchList.push(movie._id);
+    await user.save(); 
+    res.status(201).json(user).catch(next);
+    
+  } 
+  else {
+    res.status(401).json({
+      code: 401,
+      message: 'This movie has already been added to user watch list'
+    });
+  }
+});
+
 export default router;
