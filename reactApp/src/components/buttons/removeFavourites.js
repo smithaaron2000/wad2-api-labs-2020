@@ -6,7 +6,6 @@ import { deleteFavourites } from "../../api/movie-api";
 const RemoveFromFavouritesButton = ({ movie }) => {
   const context = useContext(MoviesContext);
   const context1 = useContext(AuthContext);
-  //const { isAuthenticated } = useAuth0();
 
   const handleRemoveFromFavourite = e => {
     e.preventDefault();

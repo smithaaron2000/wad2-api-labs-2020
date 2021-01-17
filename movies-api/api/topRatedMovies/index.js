@@ -3,7 +3,6 @@ import topRatedModel from '../topRatedMovies/topRatedModel';
 
 const router = express.Router();
 
-
 router.get('/', (req, res, next) => {
   topRatedModel.find().then(toprated => res.status(200).send(toprated)).catch(next);
 });

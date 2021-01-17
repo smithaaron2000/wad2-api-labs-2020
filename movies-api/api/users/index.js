@@ -3,7 +3,7 @@ import User from './userModel';
 import jwt from 'jsonwebtoken';
 import movieModel from '../movies/movieModel';
 
-const router = express.Router(); // eslint-disable-line
+const router = express.Router();
 
 // Get all users
 router.get('/', (req, res, next) => {
@@ -83,24 +83,6 @@ router.post('/:userName/favourites', async (req, res, next) => {
   }
 });
 
-// router.delete('/:userName/favourites', async (req, res, next) => {
-//   const removedFavourite = req.body.id;
-//   const userName = req.params.userName;
-//   const movie = await movieModel.findByMovieDBId(removedFavourite);
-//   const user = await User.findByUserName(userName);
-//   if (user.favourites.indexOf(movie._id) == -1) {
-//     await user.favourites.pull(movie._id);
-//     await user.save(); 
-//     res.status(201).json(user).catch(next);  
-//   } 
-//   else {
-//     res.status(401).json({
-//       code: 401,
-//       message: 'This movie is not in the user favourites'
-//     });
-//   }
-// });
-
 router.delete('/:userName/favourites', async (req, res, next) => {
   const removedFavourite = req.body.id;
   const userName = req.params.userName;
@@ -162,7 +144,5 @@ router.delete('/:userName/watchList', async (req, res, next) => {
     res.status(201).json(user).catch(next);  
   }
 });
-
-
 
 export default router;

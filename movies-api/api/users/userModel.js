@@ -5,10 +5,13 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   username: { type: String, unique: true, required: true},
-  password: {type: String, required: true },
+  password: {type: String,  
+    minlength: 5,
+    maxlength: 15,
+    trim: true,
+    required: true},
   favourites: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movies'}],
-  watchList: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movies'}],
-  contactForm: [{type: mongoose.Schema.Types.ObjectId, ref: 'Contact Form'}]
+  watchList: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movies'}]
 });
 
 UserSchema.statics.findByUserName = function (username) {

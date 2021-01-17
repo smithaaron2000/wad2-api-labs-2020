@@ -48,6 +48,13 @@ const reducer = (state, action) => {
         ),
         movies: [...state.movies],
       };
+      case "remove-watchlist":
+      return {
+        upcoming: state.upcoming.map((m) =>
+          m.id === action.payload.movie.id ? { ...m, watchlist: false } : m
+        ),
+        movies: [...state.movies],
+      };
     default:
       return state;
   }
@@ -70,6 +77,11 @@ const MoviesContextProvider = (props) => {
   const addToWatchList = (movieId) => {
     const index = state.upcoming.map((m) => m.id).indexOf(movieId);
     dispatch({ type: "add-watchlist", payload: { movie: state.upcoming[index] } });
+  };
+
+  const removeFromWatchList = (movieId) => {
+    const index = state.upcoming.map((m) => m.id).indexOf(movieId);
+    dispatch({ type: "remove-watchlist", payload: { movie: state.upcoming[index] } });
   };
 
   const addReview = (movie, review) => {
@@ -105,6 +117,7 @@ const MoviesContextProvider = (props) => {
         removeFromFavorites: removeFromFavorites,
         addReview: addReview,
         addToWatchList: addToWatchList,
+        removeFromWatchList: removeFromWatchList,
       }}
     >
       {props.children}

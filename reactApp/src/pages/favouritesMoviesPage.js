@@ -8,7 +8,6 @@ const FavoriteMoviesPage = () => {
   const context = useContext(MoviesContext);
   const context2 = useContext(AuthContext);
   const [favourites, setFavourites] = useState([]);
-  //const favourites = context.movies.filter( m => m.favorite )
 
   if (context2.isAuthenticated) {
     var userFavourites = async() => {

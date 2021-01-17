@@ -57,6 +57,16 @@ export const favourites = (username, id) => {
     }).then(res => res.json())
   };
 
+  export const deleteWatchList = (username, id) => {
+    return fetch(`/api/users/${username}/watchList`, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'delete',
+      body: JSON.stringify({id: id })
+    }).then(res => res.json())
+  };
+
   export const getSpecificUserWatchList = (username) => {
     return fetch(
        `/api/users/${username}/watchList`,{headers: {
@@ -105,15 +115,6 @@ export const getMovies = () => {
 export const getGenres = () => {
   return fetch(
      '/api/genres',{headers: {
-       'Authorization': window.localStorage.getItem('token')
-    }
-  }
-  ).then(res => res.json());
-};
-
-export const getCredits = id => {
-  return fetch(
-     `/api/allmovies/${id}/credits`,{headers: {
        'Authorization': window.localStorage.getItem('token')
     }
   }
