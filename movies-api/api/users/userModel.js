@@ -5,11 +5,7 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
   username: { type: String, unique: true, required: true},
-  password: {type: String,  
-    minlength: 5,
-    maxlength: 15,
-    trim: true,
-    required: true},
+  password: {type: String, required: true},
   favourites: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movies'}],
   watchList: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movies'}]
 });
