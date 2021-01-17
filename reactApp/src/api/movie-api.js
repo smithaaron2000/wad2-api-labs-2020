@@ -28,6 +28,16 @@ export const favourites = (username, id) => {
     }).then(res => res.json())
   };
 
+  export const deleteFavourites = (username, id) => {
+    return fetch(`/api/users/${username}/favourites`, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'delete',
+      body: JSON.stringify({id: id })
+    }).then(res => res.json())
+  };
+
   export const getSpecificUserFavourites = (username) => {
     return fetch(
        `/api/users/${username}/favourites`,{headers: {

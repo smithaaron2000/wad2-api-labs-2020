@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import MovieListPageTemplate from "../components/templateMovieListPage";
-import AddReviewButton from '../components/buttons/addReview'
+import RemoveFromFavouritesButton from '../components/buttons/removeFavourites';
 import {MoviesContext} from '../contexts/moviesContext'
 import { AuthContext } from "../components/auth/authContext";
 
@@ -23,12 +23,10 @@ const FavoriteMoviesPage = () => {
     <MovieListPageTemplate
       movies={favourites}
       title={"Favourite Movies"}
-      action={movie => <AddReviewButton movie={movie} />}
+      action={movie => <RemoveFromFavouritesButton movie={movie} />}
     />
   );
 };
 }
-
-
 
 export default FavoriteMoviesPage;
