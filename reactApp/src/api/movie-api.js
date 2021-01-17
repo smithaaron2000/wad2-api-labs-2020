@@ -110,15 +110,6 @@ export const getCredits = id => {
   ).then(res => res.json());
 };
 
-// export const getMovieReviews = id => {
-//   return fetch(
-//      `/api/movies/${id}/reviews`,{headers: {
-//        'Authorization': window.localStorage.getItem('token')
-//     }
-//   }
-//   ).then(res => res.json());
-// };
-
 export const getPopularPeople = () => {
   return fetch(
      '/api/people',{headers: {
@@ -136,12 +127,3 @@ export const getPerson = id => {
   }
   ).then(res => res.json());
 };
-
-// export const getPersonMovieCredits = id => {
-//   return fetch(
-//      `/api/people/${id}/credits`,{headers: {
-//        'Authorization': window.localStorage.getItem('token')
-//     }
-//   }
-//   ).then(res => res.json());
-// };

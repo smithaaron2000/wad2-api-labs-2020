@@ -7,7 +7,7 @@ import Profile from '../components/profiles/profile';
 
 const MovieListPage = () => {
   const context = useContext(MoviesContext);
-  const movies = context.movies
+  const movies = context.movies;
 
   return (
     <>

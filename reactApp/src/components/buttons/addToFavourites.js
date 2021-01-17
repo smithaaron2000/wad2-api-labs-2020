@@ -20,7 +20,7 @@ const AddToFavouriteButton = ({ movie }) => {
     <button
       type="button"
       className="btn w-100 btn-primary"
-      onClick={handleAddToFavourite}
+      onClick={handleAddToFavourite} 
     >
       Add to Favourites
     </button>

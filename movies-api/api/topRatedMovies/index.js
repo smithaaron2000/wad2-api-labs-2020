@@ -1,15 +1,8 @@
 import express from 'express';
-import { toprated } from '../../seedData/topRatedMovies';
-//import { getTopRatedMovies } from '../tmdb-api';
 import topRatedModel from '../topRatedMovies/topRatedModel';
 
 const router = express.Router();
 
-// Get all top rated movies
-// router.get('/', (req, res, next) => {
-//   getTopRatedMovies().then(toprated => res.status(200).send(toprated))
-//   .catch((error) => next(error));
-// });
 
 router.get('/', (req, res, next) => {
   topRatedModel.find().then(toprated => res.status(200).send(toprated)).catch(next);

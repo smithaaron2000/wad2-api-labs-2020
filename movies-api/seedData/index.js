@@ -106,4 +106,3 @@ export async function loadGenres() {
     console.error(`failed to Load genre Data: ${err}`);
   }
 }
-

@@ -29,7 +29,6 @@ const AllMovieSchema = new Schema({
   }],
   status: { type: String },
   tagline: { type: String },
-  //reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Reviews'}]
 });
 
 AllMovieSchema.statics.findByMovieDBId = function (id) {

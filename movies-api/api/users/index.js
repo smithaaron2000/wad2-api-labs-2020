@@ -83,6 +83,42 @@ router.post('/:userName/favourites', async (req, res, next) => {
   }
 });
 
+// router.delete('/:userName/favourites', async (req, res, next) => {
+//   const removedFavourite = req.body.id;
+//   const userName = req.params.userName;
+//   const movie = await movieModel.findByMovieDBId(removedFavourite);
+//   const user = await User.findByUserName(userName);
+//   if (user.favourites.indexOf(movie._id) == -1) {
+//     await user.favourites.pull(movie._id);
+//     await user.save(); 
+//     res.status(201).json(user).catch(next);  
+//   } 
+//   else {
+//     res.status(401).json({
+//       code: 401,
+//       message: 'This movie is not in the user favourites'
+//     });
+//   }
+// });
+
+router.delete('/:userName/favourites', async (req, res, next) => {
+  const removedFavourite = req.body.id;
+  const userName = req.params.userName;
+  const movie = await movieModel.findByMovieDBId(removedFavourite);
+  const user = await User.findByUserName(userName);
+  if (!user.favourites.includes(movie._id) == true) {
+    res.status(401).json({
+      code: 401,
+      message: 'This movie is not in the user favourites'
+    });
+  } 
+  else {
+    await user.favourites.pull(movie._id);
+    await user.save(); 
+    res.status(201).json(user).catch(next);  
+  }
+});
+
 router.get('/:userName/watchList', (req, res, next) => {
   const userName = req.params.userName;
   User.findByUserName(userName).populate('watchList').then(
@@ -108,5 +144,25 @@ router.post('/:userName/watchList', async (req, res, next) => {
     });
   }
 });
+
+router.delete('/:userName/watchList', async (req, res, next) => {
+  const removedWatchList = req.body.id;
+  const userName = req.params.userName;
+  const movie = await movieModel.findByMovieDBId(removedWatchList);
+  const user = await User.findByUserName(userName);
+  if (!user.watchList.includes(movie._id) == true) {
+    res.status(401).json({
+      code: 401,
+      message: 'This movie is not in the user watch list'
+    });
+  } 
+  else {
+    await user.watchList.pull(movie._id);
+    await user.save(); 
+    res.status(201).json(user).catch(next);  
+  }
+});
+
+
 
 export default router;
